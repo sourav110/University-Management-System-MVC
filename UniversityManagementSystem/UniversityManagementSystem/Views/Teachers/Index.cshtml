@@ -1,0 +1,74 @@
+﻿@model IEnumerable<UniversityManagementSystem.Models.Teacher>
+
+@{
+    ViewBag.Title = "All teachers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>All Teachers</h2>
+<hr />
+
+<table class="table table-bordered table-striped">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.TeacherName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactNo)
+        </th>
+        <th>
+            @Html.Label("Designation")
+        </th>
+        <th>
+            @Html.Label("Department")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreditToBeTaken)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RemainingCredit)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.TeacherName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Designation.DesignationName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department.DepartmentCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreditToBeTaken)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RemainingCredit)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id = item.TeacherId })
+        </td>
+    </tr>
+}
+
+</table>
