@@ -1,0 +1,60 @@
+﻿@model IEnumerable<UniversityManagementSystem.Models.AllocatedClassroom>
+
+@{
+    ViewBag.Title = "Allocated classrooms";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>All Allocated Classrooms</h2>
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            @Html.Label("Course Code")
+        </th>
+        <th>
+            @Html.Label("Department")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Day.DayName)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Room.RoomNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FromTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Course.CourseCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department.DepartmentCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Day.DayName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Room.RoomNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FromTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToTime)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id = item.AllocatedClassroomId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -66,16 +66,25 @@
 
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Classroom
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Allocate Classroom", "Create", "AllocatedClassrooms")</li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             View All
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("Departments", "Index", "Departments")</li>
-                            @*<li role="separator" class="divider"></li>*@
                             <li>@Html.ActionLink("Courses", "Index", "Courses")</li>
-                            @*<li role="separator" class="divider"></li>*@
                             <li>@Html.ActionLink("Teachers", "Index", "Teachers")</li>
                             <li>@Html.ActionLink("Students", "Index", "Students")</li>
+                            <li>@Html.ActionLink("Allocated Classrooms", "Index", "AllocatedClassrooms")</li>
 
                         </ul>
                     </li>
