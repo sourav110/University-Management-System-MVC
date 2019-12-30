@@ -93,3 +93,5 @@ E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSyste
 E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.isassigned.resources
 E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.coursestatus.resources
 E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.dropremoteAssign.resources
+E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.student.resources
+E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.studentvalidation.resources

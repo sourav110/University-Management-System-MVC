@@ -15,6 +15,7 @@ namespace UniversityManagementSystem.Models
         public DbSet<Designation> Designations { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<AssignCourse> AssignCourses { get; set; }
+        public DbSet<Student> Students { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
