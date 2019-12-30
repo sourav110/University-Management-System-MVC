@@ -130,6 +130,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AssignCoursesController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -161,7 +162,36 @@
     <Compile Include="Migrations\201912290937456_Teacher2.designer.cs">
       <DependentUpon>201912290937456_Teacher2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912291837528_assign course.cs" />
+    <Compile Include="Migrations\201912291837528_assign course.designer.cs">
+      <DependentUpon>201912291837528_assign course.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912291859159_notmapped remaining.cs" />
+    <Compile Include="Migrations\201912291859159_notmapped remaining.designer.cs">
+      <DependentUpon>201912291859159_notmapped remaining.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912291912133_course assign to teacher.cs" />
+    <Compile Include="Migrations\201912291912133_course assign to teacher.designer.cs">
+      <DependentUpon>201912291912133_course assign to teacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912291919175_dept dd.cs" />
+    <Compile Include="Migrations\201912291919175_dept dd.designer.cs">
+      <DependentUpon>201912291919175_dept dd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912300351486_isassigned.cs" />
+    <Compile Include="Migrations\201912300351486_isassigned.designer.cs">
+      <DependentUpon>201912300351486_isassigned.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912300402118_course status.cs" />
+    <Compile Include="Migrations\201912300402118_course status.designer.cs">
+      <DependentUpon>201912300402118_course status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912300403013_drop remote Assign.cs" />
+    <Compile Include="Migrations\201912300403013_drop remote Assign.designer.cs">
+      <DependentUpon>201912300403013_drop remote Assign.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AssignCourse.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Designation.cs" />
@@ -215,6 +245,9 @@
     <Content Include="Views\Teachers\Create.cshtml" />
     <Content Include="Views\Teachers\Delete.cshtml" />
     <Content Include="Views\Teachers\Index.cshtml" />
+    <Content Include="Views\AssignCourses\Create.cshtml" />
+    <Content Include="Views\AssignCourses\Delete.cshtml" />
+    <Content Include="Views\AssignCourses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -250,6 +283,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912290937456_Teacher2.resx">
       <DependentUpon>201912290937456_Teacher2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912291837528_assign course.resx">
+      <DependentUpon>201912291837528_assign course.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912291859159_notmapped remaining.resx">
+      <DependentUpon>201912291859159_notmapped remaining.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912291912133_course assign to teacher.resx">
+      <DependentUpon>201912291912133_course assign to teacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912291919175_dept dd.resx">
+      <DependentUpon>201912291919175_dept dd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912300351486_isassigned.resx">
+      <DependentUpon>201912300351486_isassigned.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912300402118_course status.resx">
+      <DependentUpon>201912300402118_course status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912300403013_drop remote Assign.resx">
+      <DependentUpon>201912300403013_drop remote Assign.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

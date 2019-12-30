@@ -86,3 +86,10 @@ E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSyste
 E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.course.resources
 E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.teacher.resources
 E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.Teacher2.resources
+E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.assigncourse.resources
+E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.notmappedremaining.resources
+E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.courseassigntoteacher.resources
+E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.deptdd.resources
+E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.isassigned.resources
+E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.coursestatus.resources
+E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.dropremoteAssign.resources

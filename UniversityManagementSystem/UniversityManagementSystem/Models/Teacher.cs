@@ -50,6 +50,7 @@ namespace UniversityManagementSystem.Models
         [Range(0, (double)decimal.MaxValue, ErrorMessage = "Credit must be Non-Negative")]
         public double CreditToBeTaken { get; set; }
 
+        [NotMapped]
         public double RemainingCredit { get; set; }
     }
 }

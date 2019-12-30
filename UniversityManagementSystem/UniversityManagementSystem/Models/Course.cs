@@ -28,7 +28,7 @@ namespace UniversityManagementSystem.Models
 
         [Required(ErrorMessage = "Please Enter Course Credit")]
         [Range(0.5, 5.0, ErrorMessage = "Credit must be in range between 0.5 to 5.0")]
-        public double Credit { get; set; }
+        public double CourseCredit { get; set; }
 
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
@@ -46,6 +46,7 @@ namespace UniversityManagementSystem.Models
         public virtual Semester Semester { get; set; }
 
         public virtual String AssignTo { get; set; }
-        public bool IsEnroll { get; set; }
+        //public bool IsEnroll { get; set; }
+        public bool Status { get; set; }
     }
 }
