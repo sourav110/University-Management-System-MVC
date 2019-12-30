@@ -19,6 +19,8 @@ namespace UniversityManagementSystem.Models
         public DbSet<Day> Days { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<AllocatedClassroom> AllocatedClassroms { get; set; }
+        public DbSet<Grade> Grades { get; set; }
+        public DbSet<EnrollCourse> EnrollCourses { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

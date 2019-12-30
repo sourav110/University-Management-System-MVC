@@ -134,6 +134,7 @@
     <Compile Include="Controllers\AssignCoursesController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
+    <Compile Include="Controllers\EnrollCoursesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Controllers\TeachersController.cs" />
@@ -208,6 +209,10 @@
     <Compile Include="Migrations\201912300654045_rename allocation.designer.cs">
       <DependentUpon>201912300654045_rename allocation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912300736372_enrollment.cs" />
+    <Compile Include="Migrations\201912300736372_enrollment.designer.cs">
+      <DependentUpon>201912300736372_enrollment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AllocatedClassroom.cs" />
     <Compile Include="Models\AssignCourse.cs" />
@@ -215,6 +220,8 @@
     <Compile Include="Models\Day.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Designation.cs" />
+    <Compile Include="Models\EnrollCourse.cs" />
+    <Compile Include="Models\Grade.cs" />
     <Compile Include="Models\ProjectDbContext.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\Semester.cs" />
@@ -329,6 +336,9 @@
     <Content Include="Views\AllocatedClassrooms\Create.cshtml" />
     <Content Include="Views\AllocatedClassrooms\Delete.cshtml" />
     <Content Include="Views\AllocatedClassrooms\Index.cshtml" />
+    <Content Include="Views\EnrollCourses\Create.cshtml" />
+    <Content Include="Views\EnrollCourses\Delete.cshtml" />
+    <Content Include="Views\EnrollCourses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -397,6 +407,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912300654045_rename allocation.resx">
       <DependentUpon>201912300654045_rename allocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912300736372_enrollment.resx">
+      <DependentUpon>201912300736372_enrollment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
