@@ -213,6 +213,14 @@
     <Compile Include="Migrations\201912300736372_enrollment.designer.cs">
       <DependentUpon>201912300736372_enrollment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912301903001_ddl.cs" />
+    <Compile Include="Migrations\201912301903001_ddl.designer.cs">
+      <DependentUpon>201912301903001_ddl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912301945081_grade.cs" />
+    <Compile Include="Migrations\201912301945081_grade.designer.cs">
+      <DependentUpon>201912301945081_grade.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AllocatedClassroom.cs" />
     <Compile Include="Models\AssignCourse.cs" />
@@ -339,6 +347,8 @@
     <Content Include="Views\EnrollCourses\Create.cshtml" />
     <Content Include="Views\EnrollCourses\Delete.cshtml" />
     <Content Include="Views\EnrollCourses\Index.cshtml" />
+    <Content Include="Views\EnrollCourses\SaveResult.cshtml" />
+    <Content Include="Views\EnrollCourses\ViewResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -410,6 +420,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912300736372_enrollment.resx">
       <DependentUpon>201912300736372_enrollment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912301903001_ddl.resx">
+      <DependentUpon>201912301903001_ddl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912301945081_grade.resx">
+      <DependentUpon>201912301945081_grade.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -35,7 +35,12 @@ namespace UniversityManagementSystem.Models
 
         public DateTime Date { get; set; }
 
+        //[NotMapped]
+        //public int GradeId { get; set; }
+        //[NotMapped]
+        //public virtual Grade Grade { get; set; }
+
         public virtual string GradeLetter { set; get; }
-        public bool IsEnroll { get; set; }
+        public bool IsGraded { get; set; }
     }
 }

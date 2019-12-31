@@ -98,3 +98,5 @@ E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSyste
 E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.allocationRoom.resources
 E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.renameallocation.resources
 E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.enrollment.resources
+E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.ddl.resources
+E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.grade.resources

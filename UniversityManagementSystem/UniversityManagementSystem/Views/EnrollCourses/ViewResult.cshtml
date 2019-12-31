@@ -1,32 +1,31 @@
 ﻿@model UniversityManagementSystem.Models.EnrollCourse
-@using Vereyon.Web;
 
 @{
-    ViewBag.Title = "Course enrollment";
+    ViewBag.Title = "ViewResult";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Enroll In a Course</h2>
-
+<h2>View Result</h2>
 
 @using (Html.BeginForm())
 {
+
     @Html.AntiForgeryToken()
-    @Html.RenderFlashMessages()
 
     <div class="form-horizontal">
+
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.StudentId, "Student Reg No.", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.StudentId, "Select Student Reg No.", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("StudentId", null, "--Select Student--", htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("StudentId", null, "--Select Reg No--", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.StudentId, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.StudentName, "Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.StudentName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.StudentName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                 @Html.ValidationMessageFor(model => model.StudentName, "", new { @class = "text-danger" })
@@ -50,49 +49,39 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CourseId, "Select Course", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("CourseId", null, "--Select Course--", htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.CourseId, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" id="Submit" value="Enroll" class="btn btn-success" />
+                <input type="button" onclick="location.href='@Url.Action("ReseultReport", "Results")'" value="Make PDF" class="btn btn-success" />
+                @*<button type="button" onclick="location.href='@Url.Action("ReseultReport", "Results")'" class="btn btn-success" formaction="">Make PDF</button>*@
             </div>
         </div>
+
+        <table class="table table-bordered table-striped" id="resultTable">
+            <thead>
+                <tr>
+                    <th>Course Code</th>
+                    <th>Name</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody id="result"></tbody>
+        </table>
+
     </div>
 }
 
-
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 
-    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
-    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
-
     <script>
         $(document).ready(function () {
-            $("#Date").datepicker({
-                dateFormat: "yy/mm/dd",
-                changeMonth: true,
-                changeYear: true
-                //onSelect:
-            }).datepicker("setDate", "today");
-
             $("#StudentId").change(function () {
                 var id = $("#StudentId").val();
                 var parameter = { studentId: id }
+
                 $("#StudentName").val("");
                 $("#Email").val("");
                 $("#Department").val("");
@@ -106,27 +95,42 @@
                         $("#StudentName").val(student.StudentName);
                         $("#Email").val(student.Email);
                         $("#Department").val(student.Department.DepartmentName);
-
                         //Course dropdown//
-                        var deptId = student.Department.DepartmentId;
-                        var param = { departmentId: deptId };
+
+                        var stuId = $("#StudentId").val();
+                        var param = { studentId: stuId };
+
                         $("#CourseId").empty();
                         $("#CourseId").append('<option value=0>--Select Course--</option>');
-                            $.ajax({
-                                type: "POST",
-                                url: '@Url.Action("GetCoursesByDepartmentId", "EnrollCourses")',
-                                contentType: "application/json; charset=utf-8",
-                                data: JSON.stringify(param),
-                                success: function (courses) {
-                                    $.each(courses, function (key, value) {
-                                        $("#CourseId").append('<option value=' + value.CourseId + '>' + value.CourseCode + '</option>');
-                                    });
-                                }
-                            });
+                        $("#result").empty();
+
+                        $.ajax({
+                            type: "POST",
+                            url: '@Url.Action("GetEnrolledCoursesByStudentId", "EnrollCourses")',
+                            contentType: "application/json; charset=utf-8",
+                            data: JSON.stringify(param),
+                            success: function (courses) {
+                                $.each(courses, function (key, value) {
+                                    $("#CourseId").append('<option value=' + value.Course.CourseId + '>' + value.Course.CourseCode + '</option>');
+
+                                    var grade = value.GradeLetter;
+                                    if (grade == null) {
+                                        grade = 'Not Graded Yet';
+                                    }
+
+                                    $("#result").append(
+                                        '<tr>' +
+                                        '<td>' + value.Course.CourseCode + '</td>' +
+                                        '<td>' + value.Course.CourseName + '</td>' +
+                                        '<td>' + grade + '</td>' +
+                                        '</tr>'
+                                    )
+                                });
+                            }
+                        });
                     }
                 });
             });
-            //document ready
         });
     </script>
 }
