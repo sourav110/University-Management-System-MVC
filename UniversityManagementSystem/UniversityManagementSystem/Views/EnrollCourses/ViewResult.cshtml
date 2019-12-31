@@ -1,7 +1,7 @@
 ﻿@model UniversityManagementSystem.Models.EnrollCourse
 
 @{
-    ViewBag.Title = "ViewResult";
+    ViewBag.Title = "View result of the student";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -95,6 +95,7 @@
                         $("#StudentName").val(student.StudentName);
                         $("#Email").val(student.Email);
                         $("#Department").val(student.Department.DepartmentName);
+
                         //Course dropdown//
 
                         var stuId = $("#StudentId").val();

@@ -75,60 +75,50 @@ namespace UniversityManagementSystem.Controllers
             ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "CourseCode");
             ViewBag.GradeId = new SelectList(db.Grades, "GradeId", "GradeLetter");
             
-            //var enrollCourses = db.EnrollCourses.ToList();
             var enrollCourses = db.EnrollCourses.Where(s => s.StudentId == enrollCourse.StudentId && s.CourseId == enrollCourse.CourseId).ToList();
 
-
-
-            int item = enrollCourses.Count();
-            if (item == 1)
+            int noOfEnrolledCourses = enrollCourses.Count();
+            if (noOfEnrolledCourses == 1)
             {
+                if(IsGraded(enrollCourse))
+                {
+                    FlashMessage.Danger("Already Graded");
+                    return RedirectToAction("SaveResult");
+                }
+
                 var id = enrollCourses[0].EnrollCourseId;
                 var sid = enrollCourses[0].StudentId;
                 var cid = enrollCourses[0].CourseId;
                 var date = enrollCourses[0].Date;
-                //var grade = enrollCourse.GradeId.ToString();
-                var grade = form["GradeId"].ToString(); //its working
+                //var grade = form["GradeId"].ToString(); //its working
+                var grade = form["gradeLetter"].ToString(); //its working finallyyyyyyyyyy
 
                 enrollCourse.EnrollCourseId = id;
                 enrollCourse.StudentId = sid;
                 enrollCourse.CourseId = cid;
                 enrollCourse.Date = date;
-                //enrollCourse.GradeLetter = grade; // eita pailei done
                 enrollCourse.GradeLetter = grade; //its working
 
                 enrollCourse.IsGraded = true;
                 db.EnrollCourses.AddOrUpdate(enrollCourse);
             }
 
-            //if (enrollCourse.IsGraded == true)
-            //{
-            //    FlashMessage.Danger("Already Graded");
-            //    return RedirectToAction("SaveResult");
-            //}
-
-
-            //if (IsGraded(enrollCourse))
-            //{
-            //    FlashMessage.Danger("Already Graded");
-            //    return RedirectToAction("SaveResult");
-            //}
-
             db.SaveChanges();
-            FlashMessage.Confirmation("Graded Successfully");
+            FlashMessage.Confirmation("Result Saved Successfully");
             return View(enrollCourse);
         }
 
-        //public bool IsGraded(EnrollCourse enroll)
-        //{
-        //    var enrolledCourses = db.EnrollCourses.ToList();
+        public bool IsGraded(EnrollCourse enroll)
+        {
+            //var enrolledCourses = db.EnrollCourses.ToList();
+            var enrolledCourse = db.EnrollCourses.Where(s => s.StudentId == enroll.StudentId && s.CourseId == enroll.CourseId).ToList();
 
-        //    if (enrolledCourses.Any(c => (c.EnrollCourseId == enroll.EnrollCourseId && (enroll.GradeLetter != null))))
-        //    {
-        //        return true;
-        //    }
-        //    return false;
-        //}
+            if (enrolledCourse.Any(c => (c.StudentId == enroll.StudentId) && (c.CourseId == enroll.CourseId) && (c.GradeLetter != null)))
+            {
+                return true;
+            }
+            return false;
+        }
 
 
         public bool IsEnrolled(EnrollCourse enroll)
@@ -169,11 +159,6 @@ namespace UniversityManagementSystem.Controllers
             ViewBag.StudentId = new SelectList(db.Students, "StudentId", "RegNo");
             return View();
         }
-
-
-
-
-
 
 
 

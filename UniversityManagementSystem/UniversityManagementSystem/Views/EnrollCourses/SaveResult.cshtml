@@ -61,6 +61,8 @@
             @Html.Label("Grade Letter", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("GradeId", null, "--Select Grade--", htmlAttributes: new { @class = "form-control" })
+
+                <input type="hidden" id="gradeLetter" name="gradeLetter" value=""/>
             </div>
         </div>
 
@@ -121,32 +123,14 @@
                         });
                     }
                 });
+
+                $("#GradeId").change(function () {
+                    var grade = $("#GradeId option:selected").text();
+                    $("#gradeLetter").val(grade);
+                })
+
             });
-
-            @*$("#Submit").click(function() {
-
-                var studentId = $("#StudentId").val();
-                var courseId = $("#CourseId").val();
-                var grade = $("#GradeLetter").val();
-
-                var json = { StudentId: studentId, CourseId: courseId, GradeLetter: grade };
-
-                $.ajax({
-                    type: "POST",
-                    url: '@Url.Action("SaveResultOfEnrolledCourse", "EnrollCourses")',
-                    contentType: "application/json; charset=utf-8",
-                    data: JSON.stringify(json),
-                    dataType: "json",
-                    success: function (data) {
-                        alert("Result Saved Successfully!");
-                        $("#StudentId").val("");
-                        $("#CourseId").val("");
-                        $("#GradeLetter").val("");
-                    }
-                });
-                return false;
-            });*@
-
+            
             //ready end
         });
     </script>
