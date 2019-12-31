@@ -16,7 +16,7 @@ namespace UniversityManagementSystem.Models
         [Required(ErrorMessage = "Please Select Department")]
         public int DepartmentId { get; set; }
         [ForeignKey("DepartmentId")]
-        public Department Department { get; set; }
+        public virtual Department Department { get; set; }
 
         [Display(Name = "Course")]
         [Required(ErrorMessage = "Please Select Course")]
@@ -45,6 +45,6 @@ namespace UniversityManagementSystem.Models
         //[DataType(DataType.Time)]
         public string ToTime { get; set; }
 
-        public bool AllocationStatus { get; set; }
+        public bool IsAllocated { get; set; }
     }
 }

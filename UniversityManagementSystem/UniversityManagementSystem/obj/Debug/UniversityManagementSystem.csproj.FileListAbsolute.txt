@@ -100,3 +100,6 @@ E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSyste
 E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.enrollment.resources
 E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.ddl.resources
 E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.grade.resources
+E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.virtualdept.resources
+E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations._bool.resources
+E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.isassigned1.resources

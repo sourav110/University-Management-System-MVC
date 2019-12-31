@@ -112,17 +112,18 @@
                         var param = { departmentId: deptId };
                         $("#CourseId").empty();
                         $("#CourseId").append('<option value=0>--Select Course--</option>');
-                            $.ajax({
-                                type: "POST",
-                                url: '@Url.Action("GetCoursesByDepartmentId", "EnrollCourses")',
-                                contentType: "application/json; charset=utf-8",
-                                data: JSON.stringify(param),
-                                success: function (courses) {
-                                    $.each(courses, function (key, value) {
-                                        $("#CourseId").append('<option value=' + value.CourseId + '>' + value.CourseCode + '</option>');
-                                    });
-                                }
-                            });
+
+                        $.ajax({
+                            type: "POST",
+                            url: '@Url.Action("GetCoursesByDepartmentId", "EnrollCourses")',
+                            contentType: "application/json; charset=utf-8",
+                            data: JSON.stringify(param),
+                            success: function (courses) {
+                                $.each(courses, function (key, value) {
+                                    $("#CourseId").append('<option value=' + value.CourseId + '>' + value.CourseCode + '</option>');
+                                });
+                            }
+                        });
                     }
                 });
             });

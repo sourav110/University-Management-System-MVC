@@ -45,8 +45,9 @@ namespace UniversityManagementSystem.Models
         [ForeignKey("SemesterId")]
         public virtual Semester Semester { get; set; }
 
-        public virtual String AssignTo { get; set; }
-        //public bool IsEnroll { get; set; }
-        public bool Status { get; set; }
+        public virtual String AssignedTo { get; set; }
+
+        public bool IsAssigned { get; set; }
+        //public bool Status { get; set; }
     }
 }

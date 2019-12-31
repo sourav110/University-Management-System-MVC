@@ -44,6 +44,8 @@ namespace UniversityManagementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                allocatedClassroom.IsAllocated = true;
+
                 db.AllocatedClassroms.Add(allocatedClassroom);
                 await db.SaveChangesAsync();
                 FlashMessage.Confirmation("Room Successfully Allocated");

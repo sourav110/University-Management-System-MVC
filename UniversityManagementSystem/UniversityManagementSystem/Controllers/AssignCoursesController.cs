@@ -50,6 +50,8 @@ namespace UniversityManagementSystem.Controllers
                     return RedirectToAction("Create");
                 }
 
+                //assignCourse.Course.IsAssigned = true;
+
                 db.AssignCourses.Add(assignCourse);
                 await db.SaveChangesAsync();
                 FlashMessage.Confirmation("Successfully Assigned");
@@ -115,7 +117,7 @@ namespace UniversityManagementSystem.Controllers
 
         public JsonResult SaveAssignCourse(AssignCourse assignCourse)
         {
-            var asignCourseList = db.AssignCourses.Where(t => t.CourseId == assignCourse.CourseId && t.Course.Status == true).ToList();
+            var asignCourseList = db.AssignCourses.Where(t => t.CourseId == assignCourse.CourseId && t.Course.IsAssigned == true).ToList();
 
             if (asignCourseList.Count > 0)
             {
@@ -139,8 +141,8 @@ namespace UniversityManagementSystem.Controllers
                     var course = db.Courses.FirstOrDefault(c => c.CourseId == assignCourse.CourseId);
                     if (course != null)
                     {
-                        course.Status = true;
-                        course.AssignTo = teacher.TeacherName;
+                        course.IsAssigned = true;
+                        course.AssignedTo = teacher.TeacherName;
                         db.Courses.AddOrUpdate(course);
                         db.SaveChanges();
                         return Json(true);
@@ -155,20 +157,16 @@ namespace UniversityManagementSystem.Controllers
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        public ActionResult ViewCourseStatistics()
+        {
+            ViewBag.DepartmentId = new SelectList(db.Departments, "DepartmentId", "DepartmentName");
+            return View();
+        }
+        public ActionResult GetCourseStatisticsByDeptId(int deptId)
+        {
+            var courses = db.Courses.Where(c => c.DepartmentId == deptId).ToList();
+            return Json(courses);
+        }
 
 
         // GET: AssignCourses/Delete/5

@@ -221,6 +221,18 @@
     <Compile Include="Migrations\201912301945081_grade.designer.cs">
       <DependentUpon>201912301945081_grade.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912311645054_virtual dept.cs" />
+    <Compile Include="Migrations\201912311645054_virtual dept.designer.cs">
+      <DependentUpon>201912311645054_virtual dept.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912311739384_bool.cs" />
+    <Compile Include="Migrations\201912311739384_bool.designer.cs">
+      <DependentUpon>201912311739384_bool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912311747117_isassigned1.cs" />
+    <Compile Include="Migrations\201912311747117_isassigned1.designer.cs">
+      <DependentUpon>201912311747117_isassigned1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AllocatedClassroom.cs" />
     <Compile Include="Models\AssignCourse.cs" />
@@ -349,6 +361,7 @@
     <Content Include="Views\EnrollCourses\Index.cshtml" />
     <Content Include="Views\EnrollCourses\SaveResult.cshtml" />
     <Content Include="Views\EnrollCourses\ViewResult.cshtml" />
+    <Content Include="Views\AssignCourses\ViewCourseStatistics.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -426,6 +439,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912301945081_grade.resx">
       <DependentUpon>201912301945081_grade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912311645054_virtual dept.resx">
+      <DependentUpon>201912311645054_virtual dept.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912311739384_bool.resx">
+      <DependentUpon>201912311739384_bool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912311747117_isassigned1.resx">
+      <DependentUpon>201912311747117_isassigned1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
