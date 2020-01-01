@@ -70,7 +70,8 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Allocate" class="btn btn-success" />
+                <input type="submit" id="Submit" value="Allocate" class="btn btn-success" />
+                <input type="button" value="Unallocate Rooms" id="Unallocate" class="btn btn-danger" />
             </div>
         </div>
     </div>
@@ -100,6 +101,64 @@
                     }
                 });
             });
+
+
+            $("#Submit").click(function () {
+                var departmentId = $("#DepartmentId").val();
+                var courseId = $("#CourseId").val();
+                var roomId = $("#RoomId").val();
+                var dayId = $("#DayId").val();
+
+                var time = $("#FromTime").val();
+                var hour = parseInt(time.substr(0, 2));
+                var minute = parseInt(time.substr(3, 5));
+                var fromTime = hour * 60 + minute;
+                //alert(hour);
+                //alert(minute);
+                //alert(fromTime);
+
+                var time = $("#ToTime").val();
+                hour = parseInt(time.substr(0, 2));
+                minute = parseInt(time.substr(3, 5));
+                var toTime = hour * 60 + minute;
+                //alert(hour);
+                //alert(minute);
+                //alert(toTime);
+                
+                if (fromTime == toTime) {
+                    alert("A class can not Start and End at the same time");
+                    return false;
+                }
+
+            });
+
+
+            $("#Unallocate").click(function () {
+                var flag = confirm("Are You Sure to Unallocate All Classrooms Schedule?");
+
+                if (flag == true) {
+                    var jsonData = { status: flag };
+                    $.ajax({
+                        type: "POST",
+                        url: '@Url.Action("UnallocateAllRooms", "AllocatedClassrooms")',
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify(jsonData),
+                        dataType: "json",
+                        success: function (data) {
+                            if (data == true) {
+                                alert("All Rooms Unallocated Successffully!");
+                            }
+                            else {
+                                alert("No Rooms Available to Unallocate");
+                            }
+                        }
+                    });
+
+                }
+                return false;
+            });
+
+
         });
     </script>
 }

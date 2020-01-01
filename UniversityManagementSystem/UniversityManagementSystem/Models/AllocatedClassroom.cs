@@ -24,22 +24,24 @@ namespace UniversityManagementSystem.Models
         public virtual Course Course { get; set; }
 
         [Display(Name = "Room")]
-        [Required(ErrorMessage = "Please select Room")]
+        [Required(ErrorMessage = "Please Select Room")]
         public int RoomId { get; set; }
         [ForeignKey("RoomId")]
         public virtual Room Room { get; set; }
 
         [Display(Name = "Day")]
-        [Required(ErrorMessage = "Please select Day")]
+        [Required(ErrorMessage = "Please Select Day")]
         public int DayId { get; set; }
         [ForeignKey("DayId")]
         public virtual Day Day { get; set; }
 
+        [Required(ErrorMessage ="Please Enter Starting Time")]
         [Display(Name = "From")]
         //[Column(TypeName ="time")]
         //[DataType(DataType.Time)]
         public string FromTime { get; set; }
 
+        [Required(ErrorMessage = "Please Enter Finishing Time")]
         [Display(Name = "To")]
         //[Column(TypeName="time")]
         //[DataType(DataType.Time)]

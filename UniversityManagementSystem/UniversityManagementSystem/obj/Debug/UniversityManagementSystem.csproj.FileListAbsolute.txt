@@ -103,3 +103,5 @@ E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSyste
 E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.virtualdept.resources
 E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations._bool.resources
 E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.isassigned1.resources
+E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.notmapped.resources
+E:\Final Project BITM(Mine)\UniversityManagementSystem\UniversityManagementSystem\obj\Debug\UniversityManagementSystem.Migrations.validation.resources

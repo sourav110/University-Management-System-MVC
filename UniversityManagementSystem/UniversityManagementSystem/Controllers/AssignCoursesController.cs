@@ -169,6 +169,48 @@ namespace UniversityManagementSystem.Controllers
         }
 
 
+        public JsonResult UnAssignAllCourses(bool status)
+        {
+            var courses = db.Courses.Where(c => c.IsAssigned == true).ToList();
+            var enrollCourses = db.EnrollCourses.Where(s => s.IsGraded == true).ToList();
+            var teachers = db.AssignCourses.ToList();
+
+            if (courses.Count == 0 && enrollCourses.Count == 0)
+            {
+                return Json(false);
+            }
+            else
+            {
+                foreach (var course in courses)
+                {
+                    course.IsAssigned = false;
+                    course.AssignedTo = "NULL";
+                    db.Courses.AddOrUpdate(course);
+                    db.SaveChanges();
+                }
+
+                foreach (var enrollCourse in enrollCourses)
+                {
+                    enrollCourse.GradeLetter = null;
+                    enrollCourse.IsGraded = false;
+                    db.EnrollCourses.AddOrUpdate(enrollCourse);
+                    db.SaveChanges();
+
+                }
+                foreach (var teacher in teachers)
+                {
+                    teacher.RemainingCredit = teacher.CreditToBeTaken;
+                    teacher.Teacher.RemainingCredit = teacher.CreditToBeTaken;
+                    db.AssignCourses.AddOrUpdate(teacher);
+                    db.Teachers.AddOrUpdate(teacher.Teacher);
+                    db.SaveChanges();
+                }
+
+                return Json(true);
+            }
+        }
+
+
         // GET: AssignCourses/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {

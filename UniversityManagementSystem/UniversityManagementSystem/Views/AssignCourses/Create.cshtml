@@ -75,6 +75,7 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" id="Submit" value="Assign" class="btn btn-success" />
+                <input type="button" id="UnAssign" value="Unassign Courses" class="btn btn-danger" />
             </div>
         </div>
     </div>
@@ -174,7 +175,37 @@
                 });
             });
 
+            //Un Assign Classrooms
+            $("#UnAssign").click(function () {
 
+                var flag = confirm("Are You Sure to Unassign All Courses?");
+                if (flag == true) {
+                    var jsonData = { status: flag };
+
+                    $.ajax({
+                        type: "POST",
+                        url: '@Url.Action("UnAssignAllCourses", "AssignCourses")',
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify(jsonData),
+                        dataType: "json",
+                        success: function (data) {
+
+                            if (data == true) {
+                                alert("All Courses Unassigned Successffully!");
+                            }
+                            else
+                            {
+                                alert("No Courses Available to Unassgn");
+                            }
+                        }
+                    });
+
+                }
+                return false;
+            });
+
+
+            //Assign Classrooms
             $("#Submit").click(function () {
                 var departmentId = $("#DepartmentId").val();
                 var teacherId = $("#TeacherId").val();
@@ -187,25 +218,26 @@
                 var remainingCredit = $("#RemainingCredit").val() - $("#CourseCredit").val();
 
 
-                //var flag = false;
+                var flag = false;
                 if (remainingCredit < 0) {
-                    var flag = confirm("The Teacher has Alreay too Many Courses. Do You Want to Assign More Courses?");
-                    if (flag == false) {
-                        return false;
-                    }
-                    return true;
+                    var flag = confirm("The Teacher has Alreay too Many Courses. Do You Want to Assign More?");
+                    //if (flag == false) {
+                    //    return false;
+                    //}
+                    //return true;
                 }
 
                 if (flag == true || remainingCredit > 0 || remainingCredit == 0) {
                     var takenCredit = $("#CreditToBeTaken").val();
 
-                    var jsnFormatData = { DepartmentId: departmentId, TeacherId: teacherId, CourseId: courseId, CreditToBeTaken: takenCredit, RemainingCredit: remainingCredit };
+                    var jsonData = { DepartmentId: departmentId, TeacherId: teacherId, CourseId: courseId, CreditToBeTaken: takenCredit, RemainingCredit: remainingCredit };
+
 
                     $.ajax({
                         type: "POST",
                         url: '@Url.Action("SaveAssignCourse", "AssignCourses")',
                         contentType: "application/json; charset=utf-8",
-                        data: JSON.stringify(jsnFormatData),
+                        data: JSON.stringify(jsonData),
                         dataType: "json",
                         success: function (data) {
 
@@ -215,7 +247,17 @@
                             else {
                                 alert("Course is already Assigned");
                                 return false;
-                                }
+                            }
+
+                            $("#DepartmentId").val("");
+
+                            $("#TeacherId").val("");
+                            $("#CreditToBeTaken").val("");
+                            $("#RemainingCredit").val("");
+
+                            $("#CourseId").val("");
+                            $("#CourseName").val("");
+                            $("#CourseCredit").val("");
                             }
                         });
                     }

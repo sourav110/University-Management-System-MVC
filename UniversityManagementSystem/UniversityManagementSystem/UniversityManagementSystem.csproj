@@ -233,6 +233,14 @@
     <Compile Include="Migrations\201912311747117_isassigned1.designer.cs">
       <DependentUpon>201912311747117_isassigned1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001010415426_notmapped.cs" />
+    <Compile Include="Migrations\202001010415426_notmapped.designer.cs">
+      <DependentUpon>202001010415426_notmapped.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001010528048_validation.cs" />
+    <Compile Include="Migrations\202001010528048_validation.designer.cs">
+      <DependentUpon>202001010528048_validation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AllocatedClassroom.cs" />
     <Compile Include="Models\AssignCourse.cs" />
@@ -448,6 +456,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912311747117_isassigned1.resx">
       <DependentUpon>201912311747117_isassigned1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001010415426_notmapped.resx">
+      <DependentUpon>202001010415426_notmapped.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001010528048_validation.resx">
+      <DependentUpon>202001010528048_validation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

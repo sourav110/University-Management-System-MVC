@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using UniversityManagementSystem.Models;
 using Vereyon.Web;
+using System.Data.Entity.Migrations;
 
 namespace UniversityManagementSystem.Controllers
 {
@@ -63,6 +64,26 @@ namespace UniversityManagementSystem.Controllers
         {
             var courses = db.Courses.Where(c => c.DepartmentId == departmentId).ToList();
             return Json(courses);
+        }
+
+
+        public JsonResult UnallocateAllRooms(bool status)
+        {
+            var allocatedClassrooms = db.AllocatedClassroms.Where(r => r.IsAllocated == true).ToList();
+            if (allocatedClassrooms.Count == 0)
+            {
+                return Json(false);
+            }
+            else
+            {
+                foreach (var room in allocatedClassrooms)
+                {
+                    room.IsAllocated = false;
+                    db.AllocatedClassroms.AddOrUpdate(room);
+                    db.SaveChanges();
+                }
+                return Json(true);
+            }
         }
 
         // GET: AllocatedClassrooms/Delete/5
