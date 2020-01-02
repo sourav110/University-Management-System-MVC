@@ -134,6 +134,7 @@ namespace UniversityManagementSystem.Controllers
                 if (teacher != null)
                 {
                     teacher.RemainingCredit = assignCourse.RemainingCredit;
+                    //teacher.RemainingCredit = teacher.CreditToBeTaken;
 
                     db.Teachers.AddOrUpdate(teacher);
                     db.SaveChanges();

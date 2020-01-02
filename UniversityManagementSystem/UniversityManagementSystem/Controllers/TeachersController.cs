@@ -42,6 +42,9 @@ namespace UniversityManagementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                //this is the line which wasted my ONE freaking month :3 
+                teacher.RemainingCredit = teacher.CreditToBeTaken;
+
                 db.Teachers.Add(teacher);
                 await db.SaveChangesAsync();
                 FlashMessage.Confirmation("Teacher Information Saved Successfully");
