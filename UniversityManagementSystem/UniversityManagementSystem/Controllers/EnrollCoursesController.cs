@@ -160,6 +160,12 @@ namespace UniversityManagementSystem.Controllers
             return View();
         }
 
+        public ActionResult GenerateResultReport()
+        {
+            var report = new Rotativa.ActionAsPdf("Index");
+            return report;
+        }
+
 
 
         // GET: EnrollCourses/Delete/5
